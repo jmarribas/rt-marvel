@@ -1,0 +1,27 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 73vh;
+}
+
+.notFound h1 {
+  font-size: 80px;
+  margin: 0;
+}
+
+.notFound span {
+  font-size: 100px;
+  margin: 0;
+}
+
+.notFound :nth-child(3) {
+  font-size: 30px;
+  margin: 0;
+}
+
+.notFound p {
+  margin: 10px;
+  text-align: center;
+}
