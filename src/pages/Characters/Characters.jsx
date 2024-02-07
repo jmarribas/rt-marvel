@@ -43,8 +43,20 @@ const Characters = () => {
 
       {characters.length > 0 && (
         <div className="navigation">
-          <button className={page === 1 ? "navigationOff" : ""} onClick={() => { if (page !== 1) { setPage(page - 20) } }}>Anterior</button>
-          <button onClick={() => setPage(page + 20)}>Siguiente</button>
+          <button className={page === 1 ? "navigationOff" : ""} onClick={() => {
+            if (page !== 1) { setPage(page - 20) }
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }}>Anterior</button>
+          <button onClick={() => {
+            setPage(page + 20)
+            window.scrollTo({
+              top: 0,
+              behavior: 'smooth'
+            });
+          }}>Siguiente</button>
         </div>
       )}
 

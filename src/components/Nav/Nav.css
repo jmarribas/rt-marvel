@@ -8,7 +8,7 @@ nav {
 }
 
 nav a {
-  color: red;
+  color: var(--rtm-primary-color);
   background-color: white;
   padding: 0 10px;
   margin: -4px;
@@ -20,6 +20,6 @@ nav a {
 
 .active, nav a:hover {
   color: rgb(255, 255, 255);
-  background-color: red;
+  background-color: var(--rtm-primary-color);
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }

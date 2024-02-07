@@ -13,7 +13,7 @@
 }
 
 .character h3 {
-  color: red;
+  color: var(--rtm-primary-color);
   margin: 0;
 }
 
@@ -46,5 +46,5 @@
 }
 
 a:hover{
-  border-bottom: 1px solid red;
+  border-bottom: 1px solid var(--rtm-primary-color);
 }

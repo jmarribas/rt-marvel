@@ -1,0 +1,137 @@
+section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeSection h1 {
+  margin: 0;
+  border-bottom: 1px solid red;
+}
+
+.homeSection h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.homeSection p {
+  margin: 0;
+  padding: 15px;
+  text-align:justify;
+}
+
+.homeCharacters {
+  width: 200px;
+  height: 400px;
+  background-image: url("/assets/Personajes_bg.webp");
+  box-shadow: rgba(255, 0, 0, 0.344) 0px 0px 20px 1px;
+  border-radius: 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeCharacters h3 {
+  rotate: 90deg;
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.homeCharacters h3:hover {
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  color: var(--rtm-primary-color);
+  transform: scale(0.9);
+}
+
+.homeCharacters a:hover {
+  border-bottom: none;;
+}
+
+.homeComics {
+  width: 200px;
+  height: 400px;
+  background-image: url("/assets/Comics_bg.webp");
+  box-shadow: rgba(255, 0, 0, 0.344) 0px 0px 20px 1px;
+  border-radius: 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeComics h3 {
+  rotate: 90deg;
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.homeComics h3:hover {
+  rotate: 90deg;
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  color: red;
+  transform: scale(0.9);
+}
+
+.homeComics a:hover {
+  border-bottom: none;;
+}
+
+
+.homeSeries {
+  width: 200px;
+  height: 400px;
+  background-image: url("/assets/Series_bg.webp");
+  box-shadow: rgba(255, 0, 0, 0.344) 0px 0px 20px 1px;
+  border-radius: 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.homeSeries h3 {
+  rotate: 90deg;
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.homeSeries h3:hover {
+  rotate: 90deg;
+  background-color: rgba(0, 0, 0, 0.601);
+  font-size: 50px;
+  padding: 0 20px;
+  color: var(--rtm-primary-color);
+  transform: scale(0.9);
+}
+
+.homeSeries a:hover {
+  border-bottom: none;;
+}
+
+@media screen and (max-width: 700px) {
+  .homeCharacters {
+    width: 170px;
+    height: 400px;
+  }
+  .homeComics {
+    width: 170px;
+    height: 400px;
+  }
+  
+}
