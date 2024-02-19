@@ -51,33 +51,6 @@
   font-size: 12px;
 }
 
-.navigation button {
-  cursor: pointer;
-}
-
-.navigationOff {
-  pointer-events: none;
-  filter: opacity(0.1);
-}
-
-.cargandoDiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 70vh;
-}
-.cargando {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #FFF;
-  border-bottom-color: var(--rtm-primary-color);
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
 @keyframes rotation {
   0% {
       transform: rotate(0deg);

@@ -1,27 +1,18 @@
-import { useEffect, useState } from 'react'
 import './Series.css'
+import Loader from '../../components/loader/Loader';
+import { useApiFetch } from '../../customHooks/useApiFetch';
+import Pagination from '../../components/Pagination/Pagination';
 
 const Series = () => {
+  
+  const { data } = useApiFetch("series")
 
-  const [series, setSeries] = useState([])
-  const [page, setPage] = useState(1);
+  if (!data[0] || data.length === 0) {
+    return <Loader/>}
 
-  useEffect(() => {
-    const fetchSeries = async () => {
-      try {
-        const response = await fetch(`https://gateway.marvel.com/v1/public/series?limit=20&offset=${page}&ts=1234&apikey=7fe82a34dafe7d3ba25d1030ce595d1a&hash=3d20528b59b9a9218c6763ce1c65efdb`);
-        const result = await response.json();
-        setSeries(result.data.results);
-      } catch (error) {
-        console.error('Error con la API:' + error.message)
-      }
-    }
-    fetchSeries();
-
-  }, [page])
   return (
     <section className='series'>
-      {series.map((serie) => (
+      {data.map((serie) => (
         <div key={serie.id} className='serieCard'>
           <div className='serieCardImg'>
             <img src={`${serie.thumbnail.path}.${serie.thumbnail.extension}`} alt={serie.title} />
@@ -31,30 +22,8 @@ const Series = () => {
           </div>
         </div>
       ))}
-      {series.length < 1 && (
-        <div className='cargandoDiv'>
-          <span className="cargando"></span>
-        </div>
-      )}
 
-      {series.length > 0 && (
-        <div className="navigation">
-          <button className={page === 1 ? "navigationOff" : ""} onClick={() => {
-            if (page !== 1) { setPage(page - 20) }
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          }}>Anterior</button>
-          <button onClick={() => {
-            setPage(page + 20)
-            window.scrollTo({
-              top: 0,
-              behavior: 'smooth'
-            });
-          }}>Siguiente</button>
-        </div>
-      )}
+        <Pagination />
 
     </section>
   )

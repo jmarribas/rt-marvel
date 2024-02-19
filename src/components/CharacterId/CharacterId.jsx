@@ -1,31 +1,23 @@
 import { Link, useParams } from 'react-router-dom'
 import './CharacterId.css'
-import { useEffect, useState } from 'react';
+import { useApiFetch } from '../../customHooks/useApiFetch';
+import Loader from '../loader/Loader';
 
 const CharacterId = () => {
   const { id } = useParams();
-  const [character, setCharacter] = useState({});
+  const { data } = useApiFetch(`characters/${id}`)
 
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        const response = await fetch(`https://gateway.marvel.com/v1/public/characters/${id}?limit=20&offset=1&ts=1234&apikey=7fe82a34dafe7d3ba25d1030ce595d1a&hash=3d20528b59b9a9218c6763ce1c65efdb`);
-        const result = await response.json();
-        setCharacter(result.data.results[0]);
-      } catch (error) {
-        console.error('Error con la API:' + error.message)
-      }
-    }
-    fetchCharacters();
+  if (!data[0] || data.length === 0) {
+    return <Loader/>}
 
-  }, [id])
+  const character = data[0]
 
   return (
     <div className='character'>
       <h2>{character.name}</h2>
       <Link to='/characters/'>- Volver a personajes -</Link>
       <div className='characterImg'>
-        {character && character.thumbnail && (
+        {character.thumbnail && (
           <img src={`${character.thumbnail.path}.${character.thumbnail.extension}`} alt={character.name} />
         )}
       </div>
@@ -33,7 +25,7 @@ const CharacterId = () => {
 
       <h3>Comics:</h3>
       <div className='characterComics'>
-        {character && character.comics && (
+        {character.comics && (
           character.comics.items.map((item) =>
             <p key={item.resourceURI}>{item.name}</p>)
         )}
@@ -41,7 +33,7 @@ const CharacterId = () => {
 
       <h3>Series:</h3>
       <div className='characterSeries'>
-        {character && character.series && (
+        {character.series && (
           character.series.items.map((item) =>
             <p key={item.resourceURI}>{item.name}</p>)
         )}
@@ -49,7 +41,7 @@ const CharacterId = () => {
 
       <h3>Enlaces:</h3>
       <div className='characterLinks'>
-        {character && character.urls && (
+        {character.urls && (
           character.urls.map((item) =>
             <a target="_blank" rel='noreferrer' key={item.url} href={item.url}>{item.type}</a>)
         )}
