@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
 import './CharacterId.css'
 import { useApiFetch } from '../../customHooks/useApiFetch';
-import Loader from '../loader/Loader';
+import Loader from '../Loader/Loader';
 
 const CharacterId = () => {
   const { id } = useParams();
