@@ -7,7 +7,7 @@ const Comics = () => {
   
   const { data } = useApiFetch("comics")
 
-  if (!data[0] || data.length === 0) {
+  if (!data || data.length === 0) {
     return <Loader/>}
 
   return (
