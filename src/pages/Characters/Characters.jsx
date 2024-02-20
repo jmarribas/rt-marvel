@@ -1,6 +1,6 @@
 import './Characters.css'
 import { Link } from 'react-router-dom'
-import Loader from '../../components/loader/Loader'
+import Loader from '../../components/Loader/Loader'
 import { useApiFetch } from '../../customHooks/useApiFetch'
 import Pagination from '../../components/Pagination/Pagination'
 
