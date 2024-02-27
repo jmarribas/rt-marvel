@@ -5,7 +5,7 @@ import Pagination from '../../components/Pagination/Pagination';
 
 const Series = () => {
   
-  const { data } = useApiFetch("series")
+  const { data, total } = useApiFetch("series")
 
   if (!data || data.length === 0) {
     return <Loader/>}
@@ -23,7 +23,7 @@ const Series = () => {
         </div>
       ))}
 
-        <Pagination />
+        <Pagination total={total} />
 
     </section>
   )

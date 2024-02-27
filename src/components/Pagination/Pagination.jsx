@@ -1,9 +1,10 @@
 import { useEffect, useReducer } from 'react'
+import PropTypes from 'prop-types';
 import './Pagination.css'
 import { useOffset } from '../OffsetContext/OffsetContext'
 import paginationReducer, { initialState } from './PaginationReducer'
 
-const Pagination = () => {
+const Pagination = ({total}) => {
 
   const { offset, setOffset } = useOffset()
 
@@ -26,8 +27,8 @@ const Pagination = () => {
   return (
 
     <div className="navigation">
-          <button className={offset === 1 ? "navigationOff" : ""} onClick={() => {
-            if (offset !== 1) { decrementPage() }
+          <button className={offset === 1 ? "navigationOff" : "pagination"} onClick={() => {
+            decrementPage()
             window.scrollTo({
               top: 0,
               behavior: 'smooth'
@@ -36,7 +37,7 @@ const Pagination = () => {
 
           <p>{pageNumber}</p>
 
-          <button onClick={() => {
+          <button className={total <= offset ? "navigationOff" : "pagination"} onClick={() => {
             incrementPage()
             window.scrollTo({
               top: 0,
@@ -46,5 +47,9 @@ const Pagination = () => {
         </div>
   )
 }
+
+Pagination.propTypes = {
+  total: PropTypes.number.isRequired
+};
 
 export default Pagination
