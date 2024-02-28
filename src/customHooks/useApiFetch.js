@@ -2,9 +2,13 @@ import { useEffect, useState } from "react";
 import { useOffset } from "../components/OffsetContext/OffsetContext";
 
 export const useApiFetch = (section) => {
-  const { offset } = useOffset()
+  const { offset, setOffset } = useOffset()
   const [data, setData] = useState([]);
   const [total, setTotal] = useState();
+
+  useEffect (() => {
+    setOffset(1)
+  }, [total, setOffset])
 
   const fetchData = async () => {
     const apiKey = "7fe82a34dafe7d3ba25d1030ce595d1a"

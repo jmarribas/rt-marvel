@@ -18,11 +18,11 @@ const Pagination = ({total}) => {
   const decrementPage = () => {
     setOffset(offset - 20)
     dispatch({ type: 'SET_PAGE', payload: page - 1 });
-  }
+  };
   const incrementPage = () => {
     setOffset(offset + 20)
     dispatch({ type: 'SET_PAGE', payload: page + 1 });
-  }
+  };
 
   return (
 
